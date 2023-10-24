@@ -20,7 +20,7 @@ const appRouter = router({
                 .exec();
 
             return {
-                posts: results,
+                posts: [],
                 nextCursor: results.length + cursor
             }
         }),
