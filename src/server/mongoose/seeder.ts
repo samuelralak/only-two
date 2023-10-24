@@ -25,8 +25,9 @@ const createRandomPost = () => {
 }
 
 const generatePosts = (count = 100) => {
-    let posts = [];
+    let posts: Record<string, any>[] = [];
 
+    // @ts-ignore
     [...Array(count).keys()].forEach((_) => {
         posts = [...posts, ...[createRandomPost()]]
     })
