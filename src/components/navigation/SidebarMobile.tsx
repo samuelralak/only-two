@@ -3,7 +3,11 @@ import {Dialog, Transition} from "@headlessui/react";
 import {XMarkIcon} from "@heroicons/react/24/outline";
 import {classNames} from "@/lib/helpers";
 
-const SidebarMobile = ({sidebarOpen, setSidebarOpen, navigation}) => {
+const SidebarMobile = ({sidebarOpen, setSidebarOpen, navigation}: {
+    sidebarOpen: boolean;
+    setSidebarOpen: (p: boolean) => void;
+    navigation: Record<string, any>[]
+}) => {
     return (
         <Transition.Root show={sidebarOpen} as={Fragment}>
             <Dialog as="div" className="relative z-50 lg:hidden" onClose={setSidebarOpen}>
