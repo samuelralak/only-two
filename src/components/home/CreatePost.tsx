@@ -5,7 +5,12 @@ import client from "@/lib/client";
 const CreatePost = () => {
     const [postContent, setPostContent] = useState<string>('')
     const [isCreating, setIsCreating] = useState<boolean>(false)
-    const mutation = client.createPost.useMutation()
+    const utils = client.useUtils();
+    const mutation = client.createPost.useMutation({
+        async onSuccess(input) {
+            await utils.fetchPosts.invalidate();
+        },
+    })
 
     const onContentInput = (event: FormEvent) => {
         // @ts-ignore
