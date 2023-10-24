@@ -54,7 +54,7 @@ const HomePage = () => {
                 </div>
 
 
-                {/*<PostList />*/}
+                <PostList />
             </div>
 
             {/*<button*/}
