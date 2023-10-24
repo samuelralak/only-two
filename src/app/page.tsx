@@ -1,5 +1,8 @@
 import HomePage from "@/components/home/HomePage";
+import TrpcProvider from "@/components/TrpcProvider";
 
-const Page = () => <HomePage />
+const Page = () => (<TrpcProvider>
+    <HomePage/>
+</TrpcProvider>)
 export default Page
 

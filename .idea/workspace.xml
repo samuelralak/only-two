@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14e7694c-cfbb-47af-b052-72b7dfad2a29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Container.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/CreatePost.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/HomePage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/navigation/SidebarDesktop.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/navigation/SidebarMobile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/helpers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/trpc/[trpc]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TrpcProvider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/home/PostList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/trpc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/api/trpc/[trpc]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/app-router.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/trpc.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +53,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/api/trpc/[trpc]" />
       <recent name="$PROJECT_DIR$/src/components/navigation" />
     </key>
   </component>
@@ -66,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698129539038</updated>
       <workItem from="1698129540645" duration="791000" />
-      <workItem from="1698130648782" duration="10704000" />
+      <workItem from="1698130648782" duration="18115000" />
     </task>
     <servers />
   </component>

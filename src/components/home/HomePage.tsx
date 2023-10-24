@@ -3,6 +3,7 @@
 import {PlusIcon} from '@heroicons/react/24/outline'
 import CreatePost from "@/components/home/CreatePost";
 import Container from "@/components/Container";
+import PostList from "@/components/home/PostList";
 
 const tabs = [
     {name: 'Featured', href: '#', current: true},
@@ -47,6 +48,8 @@ const HomePage = () => {
                 <div className={'hidden lg:block '}>
                     <CreatePost/>
                 </div>
+
+                <PostList />
 
                 <button
                     type="button"
