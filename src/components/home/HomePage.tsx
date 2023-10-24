@@ -3,6 +3,7 @@ import CreatePost from "@/components/home/CreatePost";
 import Container from "@/components/Container";
 import PostList from "@/components/home/PostList";
 import {classNames} from "@/lib/helpers";
+import client from "@/lib/client";
 
 const tabs = [
     {name: 'Featured', href: '#', current: true},
@@ -11,6 +12,13 @@ const tabs = [
 ]
 
 const HomePage = () => {
+    try {
+        client.fetchPosts.useQuery({})
+    } catch (e) {
+        console.log({e})
+    }
+
+
     return (
         <Container>
             <div
@@ -46,7 +54,7 @@ const HomePage = () => {
                 </div>
 
 
-                <PostList />
+                {/*<PostList />*/}
             </div>
 
             {/*<button*/}
