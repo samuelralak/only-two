@@ -11,8 +11,6 @@ const getBaseUrl = () => {
     return `http://127.0.0.1:${process.env.PORT ?? 3000}`; // dev SSR should use localhost
 };
 
-console.log(getBaseUrl())
-
 const queryClient = new QueryClient()
 const trpcClient =  client.createClient({
     links: [

@@ -7,6 +7,12 @@ import PostItem from "@/components/posts/PostItem";
 import {Post} from "@/lib/resources/post.resource";
 
 const PostList = () => {
+    try {
+        client.fetchPosts.useQuery({})
+    } catch (e) {
+        console.log({e})
+    }
+
     const [{pages}, postsQuery] = client.fetchPosts.useSuspenseInfiniteQuery(
         {},
         {getNextPageParam: (lastPage) => lastPage.nextCursor}
@@ -19,7 +25,6 @@ const PostList = () => {
     if (isFetching && !isFetchingNextPage) {
         return <Loader/>
     }
-
 
     return (
         <Suspense fallback={<Loader/>}>
