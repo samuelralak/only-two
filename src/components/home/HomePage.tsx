@@ -4,6 +4,9 @@ import Container from "@/components/Container";
 import PostList from "@/components/home/PostList";
 import {classNames} from "@/lib/helpers";
 import client from "@/lib/client";
+import Loader from "@/components/Loader";
+import {Post} from "@/lib/resources/post.resource";
+import {Suspense} from "react";
 
 const tabs = [
     {name: 'Featured', href: '#', current: true},
@@ -12,12 +15,7 @@ const tabs = [
 ]
 
 const HomePage = () => {
-    try {
-        client.fetchPosts.useQuery({})
-    } catch (e) {
-        console.log({e})
-    }
-
+    const {isLoading, data} = client.fetchPosts.useQuery({})
 
     return (
         <Container>
@@ -53,8 +51,21 @@ const HomePage = () => {
                     <CreatePost/>
                 </div>
 
+                <Suspense fallback={<Loader />}>
+                    {data && (<PostList posts={data.posts as Post[]}/>)}
+                </Suspense>
 
-                <PostList />
+
+                {isLoading ? (<Loader/>) : (
+                    <div className={'w-full p-10 mb-5 flex justify-center'}>
+                        <button
+                            type="button"
+                            className="rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                        >
+                            Load more
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/*<button*/}
