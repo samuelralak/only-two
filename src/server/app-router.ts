@@ -14,14 +14,14 @@ const appRouter = router({
         )
         .query(async (opts) : Promise<{nextCursor: number, posts: Post[]}> => {
             const {cursor = 0, limit = 10} = opts.input;
-            const results = await PostModel.find({})
+            const results: Post[] = await PostModel.find({})
                 .limit(limit)
                 .skip(cursor === 0 ? cursor : cursor + 1)
                 .sort({createdAt: 'desc'})
                 .exec();
 
             return {
-                posts: [],
+                posts: results,
                 nextCursor: results.length + cursor
             }
         }),
