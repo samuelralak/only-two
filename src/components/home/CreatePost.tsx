@@ -8,6 +8,7 @@ const CreatePost = () => {
     const mutation = client.createPost.useMutation()
 
     const onContentInput = (event: FormEvent) => {
+        // @ts-ignore
         setPostContent(event.target.value)
     }
 
