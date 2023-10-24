@@ -12,6 +12,8 @@ const PostList = () => {
         {getNextPageParam: (lastPage) => lastPage.nextCursor}
     );
 
+    console.log({pages})
+
     const {isFetching, isFetchingNextPage, fetchNextPage, hasNextPage} = postsQuery
 
     if (isFetching && !isFetchingNextPage) {

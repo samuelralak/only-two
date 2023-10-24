@@ -21,6 +21,8 @@ const trpcClient =  client.createClient({
             async headers() {
                 return {
                     // authorization: getAuthCookie(),
+                    accept: "application/json",
+                    contentType: "application/json",
                 };
             },
         }),
