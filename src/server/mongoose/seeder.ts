@@ -20,7 +20,7 @@ const createRandomPost = () => {
 
     return {
         content: faker.lorem.sentence({min: 1, max: 35}),
-        user
+        user: new UserModel(user)
     }
 }
 

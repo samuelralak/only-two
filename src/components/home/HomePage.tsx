@@ -2,16 +2,13 @@ import {PlusIcon} from '@heroicons/react/24/outline'
 import CreatePost from "@/components/home/CreatePost";
 import Container from "@/components/Container";
 import PostList from "@/components/home/PostList";
+import {classNames} from "@/lib/helpers";
 
 const tabs = [
     {name: 'Featured', href: '#', current: true},
     {name: 'All Posts', href: '#', current: false},
     {name: 'Following', href: '#', current: false},
 ]
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 const HomePage = () => {
     return (
@@ -48,14 +45,13 @@ const HomePage = () => {
                 </div>
 
                 <PostList />
-
-                <button
-                    type="button"
-                    className="lg:hidden absolute bottom-0 right-0 mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                    <PlusIcon className="h-6 w-6" aria-hidden="true"/>
-                </button>
             </div>
+            <button
+                type="button"
+                className="lg:hidden absolute right-0 mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+                <PlusIcon className="h-6 w-6" aria-hidden="true"/>
+            </button>
         </Container>
     )
 }

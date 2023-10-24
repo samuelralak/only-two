@@ -10,7 +10,7 @@ const requestHandler = (req: Request) =>
       router: appRouter,
       createContext: async () => {
           await dbConnect()
-          await seedDatabase()
+          // await seedDatabase()
           return {}
       },
     })

@@ -6,7 +6,6 @@ export const userSchema = new Schema({
     lastName: String,
     username: {
         type: String,
-        required: true,
         index: {
             unique: true,
             sparse: true
@@ -14,7 +13,6 @@ export const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true,
         index: {
             unique: true,
             sparse: true
