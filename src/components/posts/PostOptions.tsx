@@ -7,8 +7,13 @@ import DeletePostAlert from "@/components/posts/DeletePostAlert";
 import client from "@/lib/client";
 
 const PostOptions = ({ postId }: {postId: string}) => {
+    const utils = client.useUtils();
     const [alertOpen, setAlertOpen] = useState<boolean>(false)
-    const mutation = client.deletePost.useMutation()
+    const mutation = client.deletePost.useMutation({
+        async onSuccess(input) {
+            await utils.fetchPosts.invalidate();
+        },
+    })
 
     const onConfirmDelete = async () => {
         await mutation.mutate({ postId })
