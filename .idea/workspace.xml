@@ -5,23 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14e7694c-cfbb-47af-b052-72b7dfad2a29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Loader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/posts/DeletePostAlert.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/posts/PostItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/posts/PostOptions.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/resources/post.resource.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/resources/user.resource.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/trpc/[trpc]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api/trpc/[trpc]/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/CreatePost.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/CreatePost.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/HomePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/PostList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/PostList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/app-router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/app-router.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/models/post.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/models/post.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/models/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/mongoose/seeder.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/mongoose/seeder.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TrpcProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TrpcProvider.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1698129539038</updated>
       <workItem from="1698129540645" duration="791000" />
-      <workItem from="1698130648782" duration="45180000" />
+      <workItem from="1698130648782" duration="45807000" />
     </task>
     <servers />
   </component>

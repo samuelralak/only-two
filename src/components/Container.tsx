@@ -2,7 +2,7 @@
 
 import Navigation from "@/components/Navigation";
 
-const Container = ({children}) => {
+const Container = ({children} : {children: React.ReactNode }) => {
     return (
         <div className="container mx-auto">
             <Navigation/>

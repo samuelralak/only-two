@@ -10,7 +10,7 @@ const navigation = [
     {name: 'Messages', href: '#', icon: EnvelopeIcon, current: false},
 ]
 const Navigation = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false)
+    const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
 
     return (
         <>
