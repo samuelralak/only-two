@@ -4,6 +4,7 @@ import client from "@/lib/client";
 import {Suspense} from "react";
 import Loader from "@/components/Loader";
 import PostItem from "@/components/posts/PostItem";
+import {Post} from "@/lib/resources/post.resource";
 
 const PostList = () => {
     const [{pages}, postsQuery] = client.fetchPosts.useSuspenseInfiniteQuery(
@@ -21,9 +22,9 @@ const PostList = () => {
     return (
         <Suspense fallback={<Loader/>}>
             <ul role="list" className="divide-y divide-gray-200">
-                {pages.map((page) => page.posts).flat(Infinity).map((post) => (
-                    <li key={post._id} className={'overflow-hidden bg-white px-4 py-4 sm:px-6'}>
-                        <PostItem  post={post} />
+                {pages.map((page) => page.posts).flat(Infinity).map((post, index) => (
+                    <li key={"_id" in post ? post._id : index} className={'overflow-hidden bg-white px-4 py-4 sm:px-6'}>
+                        <PostItem  post={post as Post} />
                     </li>
                 ))}
             </ul>

@@ -2,6 +2,7 @@ import {z} from "zod"
 import {procedure, router} from "@/server/trpc";
 import PostModel from "@/server/models/post.model";
 import UserModel from "@/server/models/user.model";
+import {Post} from "@/lib/resources/post.resource";
 
 const appRouter = router({
     fetchPosts: procedure
@@ -11,7 +12,7 @@ const appRouter = router({
                 limit: z.number().optional()
             }),
         )
-        .query(async (opts) => {
+        .query(async (opts) : Promise<{nextCursor: number, posts: Post[]}> => {
             const {cursor = 0, limit = 10} = opts.input;
             const results = await PostModel.find({})
                 .limit(limit)
