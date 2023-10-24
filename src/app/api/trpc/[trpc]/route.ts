@@ -1,7 +1,9 @@
+import * as trpcNext from '@trpc/server/adapters/next';
 import appRouter from "@/server/app-router"
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch"
 import dbConnect from "@/server/mongoose";
 import {seedDatabase} from "@/server/mongoose/seeder";
+
 
 const requestHandler = (req: Request) =>
     fetchRequestHandler({
@@ -14,5 +16,6 @@ const requestHandler = (req: Request) =>
           return {}
       },
     })
+
 
 export { requestHandler as GET, requestHandler as POST }

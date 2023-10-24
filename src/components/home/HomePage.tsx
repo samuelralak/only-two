@@ -16,7 +16,7 @@ const HomePage = () => {
             <div
                 className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 px-4 shadow-sm sm:px-6 lg:px-8">
 
-                <div className="sm:block w-full">
+                <div className="sm:block w-full bg-white">
                     <div className="">
                         <nav className="-mb-px flex space-x-8" aria-label="Tabs">
                             {tabs.map((tab) => (
@@ -39,19 +39,22 @@ const HomePage = () => {
                 </div>
             </div>
 
+
             <div className="relative min-h-full">
-                <div className={'hidden lg:block '}>
+                <div>
                     <CreatePost/>
                 </div>
 
+
                 <PostList />
             </div>
-            <button
-                type="button"
-                className="lg:hidden absolute right-0 mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-                <PlusIcon className="h-6 w-6" aria-hidden="true"/>
-            </button>
+
+            {/*<button*/}
+            {/*    type="button"*/}
+            {/*    className="z-50 bottom-1/4 lg:hidden absolute right-0 mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"*/}
+            {/*>*/}
+            {/*    <PlusIcon className="h-6 w-6" aria-hidden="true"/>*/}
+            {/*</button>*/}
         </Container>
     )
 }

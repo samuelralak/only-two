@@ -24,7 +24,7 @@ const CreatePost = () => {
     }
 
     return (
-        <div className="flex items-start space-x-4 border-b border-gray-200 px-4 py-10 sm:px-6 lg:px-8 lg:py-6 mt-3">
+        <div className="flex items-start space-x-4 border-b border-gray-200 px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
             <div className="flex-shrink-0">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-500">
                     <span className="font-medium leading-none text-white">SR</span>
