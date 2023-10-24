@@ -1,7 +1,7 @@
-import {z} from "zod"
-import {procedure, router} from "@/server/trpc";
+import * as mongoose from "mongoose";
 import {faker} from "@faker-js/faker";
-
+import UserModel from "@/server/models/user.model";
+import PostModel from "@/server/models/post.model";
 
 const createRandomUser = () => {
     const firstName = faker.person.firstName()
@@ -10,6 +10,7 @@ const createRandomUser = () => {
     return {
         firstName,
         lastName,
+        email: faker.internet.email(),
         username: faker.internet.userName({firstName, lastName}).toLowerCase()
     }
 }
@@ -18,10 +19,7 @@ const createRandomPost = () => {
     const user = createRandomUser()
 
     return {
-        _id: faker.string.uuid,
         content: faker.lorem.sentence({min: 1, max: 35}),
-        createdAt: faker.date.past(),
-        userId: user._id,
         user
     }
 }
@@ -33,21 +31,11 @@ const generatePosts = (count = 100) => {
         posts = [...posts, ...[createRandomPost()]]
     })
 
-    return posts.sort((a, b) => b.createdAt - a.createdAt)
+    return posts
 }
 
-const appRouter = router({
-    hello: procedure
-        .input(
-            z.object({
-                text: z.string(),
-            }),
-        )
-        .query((opts) => {
-            return generatePosts();
-        }),
-});
-// export type definition of API
-
-export type AppRouter = typeof appRouter;
-export default appRouter
+export const seedDatabase = async () => {
+    await UserModel.deleteMany({})
+    await PostModel.deleteMany({})
+    await PostModel.insertMany(generatePosts())
+}
