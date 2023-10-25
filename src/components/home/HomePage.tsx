@@ -15,15 +15,17 @@ const tabs = [
 ]
 
 const HomePage = () => {
-    const [cursor, setCursor] = useState(0)
-    const {isLoading, data} = client.fetchPosts.useQuery({ cursor }, {
-        keepPreviousData: true,
-    })
+    const postsQuery = client.fetchPosts.useInfiniteQuery(
+        {},
+        {getNextPageParam: (lastPage) => lastPage.nextCursor},
+    );
+
+    const data = postsQuery.data?.pages.map((item) => item.posts).flat(1)
 
     return (
         <Container>
             <div
-                className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 px-4 shadow-sm sm:px-6 lg:px-8">
+                className="bg-white sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-6 border-b border-white/5 px-4 shadow-sm sm:px-6 lg:px-8">
 
                 <div className="sm:block w-full bg-white">
                     <div className="">
@@ -51,11 +53,11 @@ const HomePage = () => {
 
             <div className="relative min-h-full">
                 <div>
-                    <CreatePost />
+                    <CreatePost/>
                 </div>
 
-                <Suspense fallback={<Loader />}>
-                    {data && (<PostList posts={data.posts as Post[]}/>)}
+                <Suspense fallback={<Loader/>}>
+                    {data && (<PostList posts={data as Post[]}/>)}
                 </Suspense>
 
                 <button
@@ -65,10 +67,10 @@ const HomePage = () => {
                     <PlusIcon className="h-6 w-6" aria-hidden="true"/>
                 </button>
 
-                {isLoading ? (<Loader/>) : (
+                {postsQuery.isFetchingNextPage ? (<Loader/>) : (
                     <div className={'w-full p-10 mb-5 flex justify-center'}>
                         <button
-                            onClick={() => setCursor(data?.nextCursor!)}
+                            onClick={() => postsQuery.fetchNextPage()}
                             type="button"
                             className="rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                         >
