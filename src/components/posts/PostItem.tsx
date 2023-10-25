@@ -1,5 +1,12 @@
 import {Post} from "@/lib/resources/post.resource";
 import PostOptions from "@/components/posts/PostOptions";
+import {
+    ArrowPathRoundedSquareIcon,
+    ArrowUpTrayIcon,
+    ChatBubbleOvalLeftIcon,
+    HeartIcon,
+    ShareIcon
+} from "@heroicons/react/24/outline";
 
 interface Props {
     post: Post
@@ -43,6 +50,38 @@ const PostItem = ({post}: Props) => {
                 </div>
 
                 <p className="mt-1 text-sm">{post.content}</p>
+                <div className="mt-3 flex justify-between space-x-8">
+                    <div className="flex space-x-6">
+                            <span className="inline-flex items-center text-sm">
+                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <ChatBubbleOvalLeftIcon className="h-5 w-5" aria-hidden="true" />
+                                <span className="font-medium text-gray-900">{Math.floor(Math.random() * 100)}</span>
+                                <span className="sr-only">comments</span>
+                              </button>
+                            </span>
+                        <span className="inline-flex items-center text-sm">
+                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <ArrowPathRoundedSquareIcon className="h-5 w-5" aria-hidden="true" />
+                                <span className="font-medium text-gray-900">{Math.floor(Math.random() * 100)}</span>
+                                <span className="sr-only">reposts</span>
+                              </button>
+                            </span>
+                        <span className="inline-flex items-center text-sm">
+                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <HeartIcon className="h-5 w-5" aria-hidden="true" />
+                                <span className="font-medium text-gray-900">{Math.floor(Math.random() * 100)}</span>
+                                <span className="sr-only">likes</span>
+                              </button>
+                            </span>
+                    </div>
+                    <div className="flex text-sm">
+                            <span className="inline-flex items-center text-sm">
+                              <button type="button" className="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                                <ArrowUpTrayIcon className="h-5 w-5" aria-hidden="true" />
+                              </button>
+                            </span>
+                    </div>
+                </div>
             </div>
         </div>
     )
