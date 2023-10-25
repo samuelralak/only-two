@@ -12,12 +12,12 @@ const PostOptions = ({ postId }: {postId: string}) => {
     const mutation = client.deletePost.useMutation({
         async onSuccess(input) {
             await utils.fetchPosts.invalidate();
+            setAlertOpen(false)
         },
     })
 
     const onConfirmDelete = async () => {
         await mutation.mutate({ postId })
-        setAlertOpen(false)
     }
 
     return (
