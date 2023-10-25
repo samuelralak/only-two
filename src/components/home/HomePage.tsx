@@ -58,6 +58,12 @@ const HomePage = () => {
                     {data && (<PostList posts={data.posts as Post[]}/>)}
                 </Suspense>
 
+                <button
+                    type="button"
+                    className="z-50 sticky bottom-[5%] left-96 lg:left-[85%] lg:bottom-[5%] mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                    <PlusIcon className="h-6 w-6" aria-hidden="true"/>
+                </button>
 
                 {isLoading ? (<Loader/>) : (
                     <div className={'w-full p-10 mb-5 flex justify-center'}>
@@ -71,13 +77,6 @@ const HomePage = () => {
                     </div>
                 )}
             </div>
-
-            {/*<button*/}
-            {/*    type="button"*/}
-            {/*    className="z-50 bottom-1/4 lg:hidden absolute right-0 mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"*/}
-            {/*>*/}
-            {/*    <PlusIcon className="h-6 w-6" aria-hidden="true"/>*/}
-            {/*</button>*/}
         </Container>
     )
 }
