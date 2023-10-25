@@ -6,7 +6,7 @@ import {classNames} from "@/lib/helpers";
 import client from "@/lib/client";
 import Loader from "@/components/Loader";
 import {Post} from "@/lib/resources/post.resource";
-import {Suspense, useEffect, useState} from "react";
+import {Suspense, useEffect} from "react";
 import {useRouter} from "next/navigation";
 
 const tabs = [
@@ -16,13 +16,14 @@ const tabs = [
 ]
 
 const HomePage = () => {
+    let data: Post[] = []
     const router = useRouter()
     const postsQuery = client.fetchPosts.useInfiniteQuery(
         {},
         {getNextPageParam: (lastPage) => lastPage.nextCursor},
     );
 
-    const data = postsQuery.data?.pages.map((item) => item.posts).flat(1)
+    data = postsQuery.data?.pages.map((item) => item.posts).flat(1) || []
 
     const handleScroll = async () => {
         const position = window.scrollY;
@@ -33,7 +34,7 @@ const HomePage = () => {
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('scroll', handleScroll, {passive: true});
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -74,9 +75,10 @@ const HomePage = () => {
                     <CreatePost/>
                 </div>
 
-                <Suspense fallback={<Loader/>}>
-                    {data && (<PostList posts={data as Post[]}/>)}
-                </Suspense>
+
+                {(postsQuery.isLoading && !postsQuery.isFetchingNextPage) ? <Loader/> : (<Suspense fallback={<Loader/>}>
+                    <PostList posts={(data as Post[])}/>
+                </Suspense>)}
 
                 <button
                     type="button"
