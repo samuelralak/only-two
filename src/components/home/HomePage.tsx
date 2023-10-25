@@ -6,7 +6,7 @@ import {classNames} from "@/lib/helpers";
 import client from "@/lib/client";
 import Loader from "@/components/Loader";
 import {Post} from "@/lib/resources/post.resource";
-import {Suspense, useState} from "react";
+import {Suspense, useEffect, useState} from "react";
 
 const tabs = [
     {name: 'Featured', href: '#', current: true},
@@ -21,6 +21,22 @@ const HomePage = () => {
     );
 
     const data = postsQuery.data?.pages.map((item) => item.posts).flat(1)
+
+    const handleScroll = async () => {
+        const position = window.scrollY;
+
+        if (position === document.body.scrollHeight - document.body.offsetHeight) {
+            await postsQuery.fetchNextPage()
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <Container>
