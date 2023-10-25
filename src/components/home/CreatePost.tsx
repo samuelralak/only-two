@@ -19,16 +19,13 @@ const CreatePost = (props: {onCreateCallback?: () => void}) => {
 
     const onCreatePost = async (content: string) => {
         setIsCreating(true)
-
-        if (Boolean(content)) {
-            await mutation.mutate({ content })
-            setPostContent('')
-            if (props.onCreateCallback) {
-                props.onCreateCallback()
-            }
-        }
-
+        await mutation.mutate({ content })
+        setPostContent('')
         setIsCreating(false)
+
+        if (props.onCreateCallback) {
+            props.onCreateCallback()
+        }
     }
 
     return (
@@ -74,7 +71,7 @@ const CreatePost = (props: {onCreateCallback?: () => void}) => {
                                 onClick={() => onCreatePost(postContent)}
                                 className="rounded-full bg-indigo-600 px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
-                                {isCreating ? 'Submitting' : 'Create post'}
+                                {isCreating ? 'Submitting...' : 'Create post'}
                             </button>
                         </div>
                     </div>
