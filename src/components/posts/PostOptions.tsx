@@ -9,14 +9,17 @@ import client from "@/lib/client";
 const PostOptions = ({ postId }: {postId: string}) => {
     const utils = client.useUtils();
     const [alertOpen, setAlertOpen] = useState<boolean>(false)
+    const [isDeleting, setIsDeleting] = useState<boolean>(false)
     const mutation = client.deletePost.useMutation({
         async onSuccess(input) {
             await utils.fetchPosts.invalidate();
+            setIsDeleting(false)
             setAlertOpen(false)
         },
     })
 
     const onConfirmDelete = async () => {
+        setIsDeleting(true)
         await mutation.mutate({ postId })
     }
 
@@ -61,7 +64,7 @@ const PostOptions = ({ postId }: {postId: string}) => {
                 </Transition>
             </Menu>
 
-            <DeletePostAlert postId={postId} open={alertOpen} setOpen={setAlertOpen} onDeleteConfirm={onConfirmDelete} />
+            <DeletePostAlert isDeleting={isDeleting} open={alertOpen} setOpen={setAlertOpen} onDeleteConfirm={onConfirmDelete} />
         </>
     )
 }
