@@ -9,6 +9,12 @@ const CreatePost = (props: {onCreateCallback?: () => void}) => {
     const mutation = client.createPost.useMutation({
         async onSuccess(input) {
             await utils.fetchPosts.invalidate();
+            setPostContent('')
+            setIsCreating(false)
+
+            if (props.onCreateCallback) {
+                props.onCreateCallback()
+            }
         },
     })
 
@@ -20,12 +26,6 @@ const CreatePost = (props: {onCreateCallback?: () => void}) => {
     const onCreatePost = async (content: string) => {
         setIsCreating(true)
         await mutation.mutate({ content })
-        setPostContent('')
-        setIsCreating(false)
-
-        // if (props.onCreateCallback) {
-        //     props.onCreateCallback()
-        // }
     }
 
     return (
