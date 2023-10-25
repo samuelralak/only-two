@@ -23,9 +23,9 @@ const CreatePost = (props: {onCreateCallback?: () => void}) => {
         setPostContent('')
         setIsCreating(false)
 
-        if (props.onCreateCallback) {
-            props.onCreateCallback()
-        }
+        // if (props.onCreateCallback) {
+        //     props.onCreateCallback()
+        // }
     }
 
     return (
