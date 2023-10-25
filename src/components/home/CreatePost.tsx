@@ -2,7 +2,7 @@ import {PaperClipIcon} from "@heroicons/react/24/outline";
 import {FormEvent, SyntheticEvent, useState} from "react";
 import client from "@/lib/client";
 
-const CreatePost = () => {
+const CreatePost = (props: {onCreateCallback?: () => void}) => {
     const [postContent, setPostContent] = useState<string>('')
     const [isCreating, setIsCreating] = useState<boolean>(false)
     const utils = client.useUtils();
@@ -23,6 +23,9 @@ const CreatePost = () => {
         if (Boolean(content)) {
             await mutation.mutate({ content })
             setPostContent('')
+            if (props.onCreateCallback) {
+                props.onCreateCallback()
+            }
         }
 
         setIsCreating(false)

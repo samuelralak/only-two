@@ -7,6 +7,7 @@ import client from "@/lib/client";
 import Loader from "@/components/Loader";
 import {Post} from "@/lib/resources/post.resource";
 import {Suspense, useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
 
 const tabs = [
     {name: 'Featured', href: '#', current: true},
@@ -15,6 +16,7 @@ const tabs = [
 ]
 
 const HomePage = () => {
+    const router = useRouter()
     const postsQuery = client.fetchPosts.useInfiniteQuery(
         {},
         {getNextPageParam: (lastPage) => lastPage.nextCursor},
@@ -25,7 +27,7 @@ const HomePage = () => {
     const handleScroll = async () => {
         const position = window.scrollY;
 
-        if (position === document.body.scrollHeight - document.body.offsetHeight) {
+        if (position === (document.body.scrollHeight - document.body.offsetHeight)) {
             await postsQuery.fetchNextPage()
         }
     };
@@ -68,7 +70,7 @@ const HomePage = () => {
 
 
             <div className="relative min-h-full">
-                <div>
+                <div className={'hidden lg:block'}>
                     <CreatePost/>
                 </div>
 
@@ -78,6 +80,7 @@ const HomePage = () => {
 
                 <button
                     type="button"
+                    onClick={() => window.location.assign('/create')}
                     className="z-50 sticky bottom-[5%] left-96 lg:left-[85%] lg:bottom-[5%] mr-5 rounded-full bg-indigo-600 p-4 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     <PlusIcon className="h-6 w-6" aria-hidden="true"/>

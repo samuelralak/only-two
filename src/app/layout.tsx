@@ -10,14 +10,16 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
+  children, posts
 }: {
-  children: React.ReactNode
+  children: React.ReactNode, posts: React.ReactNode
+
 }) {
   return (
     <html className="h-full bg-white" lang="en">
       <body className={`${inter.className} h-full`}>
         {children}
+        {posts}
       </body>
     </html>
   )
